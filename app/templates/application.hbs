@@ -1,3 +1,46 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<!DOCTYPE html>
+<html>
 
-{{outlet}}
+  <head>
+    <title>Rantly</title>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+
+    <header class="top-header">
+      <a class="brand" href="/">Rantly</a>
+      <div class="content">
+        {{#link-to rants}}
+          Rants
+        {{/link-to}}
+        {{#link-to users}}
+          Users
+        {{/link-to}}
+        {{#link-to styleguide}}
+          Styleguide
+        {{/link-to}}
+      </div>
+    </header>
+
+    <section class="content">
+      <aside class="rants-navagation">
+        <div class="search">
+          {{input placeholder="Search" value=term class="search-area"}}
+        </div>
+        <div class="user-area">
+          <div style="background-image: url(http://www.gravatar.com/avatar/undefined?s=200)" class="user-photo"></div>
+        </div>
+        <button class="auth">Log Out</button>
+      </aside>
+      <header class="bottom-header">
+        <button class="new-rant">New Rant</button>
+      </header>
+      <div class="main">
+        {{outlet}}
+      </div>
+    </section>
+
+  </body>
+
+</html>
