@@ -6,40 +6,51 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Laila:400,700' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
-    <header class="top-header">
-      <a class="brand" href="/">Rantly</a>
-      <div class="content">
-        {{#link-to 'rants'}}
-          Rants
-        {{/link-to}}
-        {{#link-to users}}
-          Users
-        {{/link-to}}
-        {{#link-to styleguide}}
-          Styleguide
-        {{/link-to}}
+  <body class = "ember-application">
+    <header class="app-header">
+      <div class = "content">
+        <a class="app-header-brand" href="/">Rantly</a>
+          <nav>
+            {{#link-to 'rants'}}
+              Rants
+            {{/link-to}}
+            {{#link-to users}}
+              Users
+            {{/link-to}}
+            {{#link-to styleguide}}
+              Styleguide
+            {{/link-to}}
+          </nav>
       </div>
     </header>
 
     <section class="content">
-      <aside class="rants-navagation">
-        <div class="search">
-          {{input placeholder="Search" value=term class="search-area"}}
+      <aside class="rants-navigation">
+        <div class="rant-search">
+          {{input placeholder="Search" value=term class="rant-search-field" type = "search"}}
         </div>
-        <div class="user-area">
-          <div class="user-photo"></div>
+        <div>
+        <form class="login-form">
+          <div class="form-group">
+            {{input placeholder="Your email" class="ember-text-field" type = "text"}}
+            <label class = "login-field-icon icon-user" for="login-name"></label>
+          </div>
+          <div class="form-group">
+            {{input placeholder="Your password" class="ember-text-field" type = "password"}}
+            <label class = "login-field-icon icon-lock" for="login-pass"></label>
+          </div>
+        {{input class="ember-view ember-text-field button button-primary button-lg button-block" type="submit" value="Log In"}}
+        </form>
         </div>
-        <button class="auth">Log Out</button>
       </aside>
 
-      <header class="bottom-header">
-        {{#link-to 'rants.new'}}<button class="new-rant">New Rant</button>{{/link-to}}
+      <header class="app-inner-header">
+        {{#link-to 'rants.new'}}<button class="button button-invert">New Rant</button>{{/link-to}}
       </header>
 
-      <div class="main">
+      <main id = "scroll">
         {{outlet}}
-      </div>
+      </main>
     </section>
   </body>
 

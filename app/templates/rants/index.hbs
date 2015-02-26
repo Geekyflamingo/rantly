@@ -1,11 +1,24 @@
-<section class="all-rants">
+<section class="rants-index">
   {{#each rant in model}}
-  <div class="a-rant">
+  <article class="rant-item">
     <header class="rant-header">
-      <h3>{{rant.title}}</h3>
-      <button class="edit-rant">Edit</button>
+      <div class = "rant-header-title">
+        <h3>{{rant.title}}</h3>
+      </div>
+      <div class = "rant-header-actions">
+      <button class="button button-primary">Edit</button>
+      <!-- <span class = "icon-new"></span> -->
+      </div>
     </header>
-    {{rant.body}}
-  </div>
+    <aside class= "rant-secondary">
+      <div class= "author">
+        <div class= "author-photo"></div>
+        <h5></h5>
+        <h6></h6>
+      </div>
+    </aside>
+    <section class = "rant-item-content">
+      {{rant.body}}
+    </section>
   {{/each}}
 </section>
