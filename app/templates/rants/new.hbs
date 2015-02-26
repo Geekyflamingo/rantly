@@ -1,3 +1,27 @@
-{{textarea value=newTitle}}
-{{textarea value=newBody}}
-<button {{action 'newRant'}}>Save</button>
+<section class = "rants-new">
+  <article class = "rant-item form">
+    <header class = "rant-header">
+      <div class = "rant-header-title">
+        {{input placeholder = "Rant title" class= "input" value=newTitle  type= "text" }}
+      </div>
+      <div class = "rant-header-actions">
+        {{#link-to 'rants'}}
+          <button class = "button button-primary"{{action 'newRant'}}>Save</button>
+        {{/link-to}}
+        {{#link-to 'rants'}}
+          <button class = "button button-default"{{action 'newRant'}}>Cancel</button>
+        {{/link-to}}
+      </div>
+    </header>
+    <aside class= "rant-secondary">
+      <div class= "author">
+        <div class= "author-photo"></div>
+        <h5></h5>
+        <h6></h6>
+      </div>
+    </aside>
+    <section class= "rant-item-content">
+      {{textarea placeholder= "Start your rant." rows = "13" value=newBody}}
+    </section>
+  </article>
+</section>
