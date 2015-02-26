@@ -1,19 +1,38 @@
 @import url(http://fonts.googleapis.com/css?family=Laila:400,700);
 @import url(http://fonts.googleapis.com/css?family=Hind:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,900);
+
 *,:after,:before{
 box-sizing:border-box}
 
-a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{
+  margin:0;
+  padding:0;
+  border:0;
+  font:inherit;
+  vertical-align:baseline
+}
 
-{display:block}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+  display:block
+}
 
-ol,ul{list-style:none}
+ol,ul{
+  list-style:none
+}
 
-blockquote,q{quotes:none}
+blockquote,q{
+  quotes:none
+}
 
-blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
-table{border-collapse:collapse;border-spacing:0}
+blockquote:after,blockquote:before,q:after,q:before{
+  content:'';content:none
+}
+
+table{
+  border-collapse:collapse;border-spacing:0
+}
+
 @-webkit-keyframes fade-in{0%{opacity:0}100%{opacity:1}}
 @-webkit-keyframes fade-out{0%{opacity:1}100%{opacity:0}}
 @-webkit-keyframes slide-in-top{0%{top:-1000px}100%{top:0}}
@@ -28,6 +47,7 @@ table{border-collapse:collapse;border-spacing:0}
 .slide-in-right{-webkit-animation:slide-in-right .4s ease-out}
 .slide-out-right{-webkit-animation:slide-out-right 450ms ease-out}
 .slide-out-left{-webkit-animation:slide-out-left 450ms ease-out}
+
 body{
   font-family:"Source Sans Pro",Helvetica,Arial,sans-serif;
   font-weight:300;
@@ -525,13 +545,13 @@ input:focus,textarea:focus{
   -webkit-transition:.25s;
   transition:.25s;
   clear:both;
-  overflow:hidden
+  overflow:hidden;
 }
 
 .rant-header{
   margin-bottom:15px;
   clear:both;
-  overflow:hidden
+  overflow:hidden;
 }
 
 .rant-header-title{
