@@ -1,0 +1,11 @@
+<section class="all-rants">
+  {{#each rant in model}}
+  <div class="a-rant">
+    <header class="rant-header">
+      <h3>{{rant.title}}</h3>
+      <button class="edit-rant">Edit</button>
+    </header>
+    {{rant.body}}
+  </div>
+  {{/each}}
+</section>

@@ -7,6 +7,10 @@ body, html {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .top-header {
   background: #34495e;
   min-height: 53px;
@@ -93,17 +97,15 @@ aside.content {
 }
 
 .search-area {
-  background: 0 0;
-  padding: 5px 0;
+  background: #3498DB;
+  padding: 5px;
   font-size: 19px;
   font-weight: 700;
   line-height: 23px;
-  border-color: transparent;
-  color: #34495E;
-  text-indent: 0;
-  outline: 0;
-  box-shadow: none;
+  border: none;
+  color: #34495e;
   margin: 0px;
+  width: 100%;
 }
 
 ::-webkit-input-placeholder {
@@ -126,6 +128,7 @@ aside.content {
   width: 100%;
   height: 100px;
   border: 4px dashed #34495e;
+  border-radius: 25px 25px 0;
 }
 
 button.auth {
@@ -188,4 +191,53 @@ button.auth:hover {
   box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
   border-radius: 3px;
   transition: .25s;
+}
+
+.a-rant h3 {
+  font-family: 'Laila', serif;
+  font-weight: 700;
+  font-size: 29px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #34495e;
+}
+
+.rant-header {
+  margin-bottom: 15px;
+  clear: both;
+  overflow: hidden;
+  margin-top: 0px;
+  line-height: 150%;
+}
+
+button.edit-rant {
+  float: left;
+  background: #1abc9c;
+  color: white;
+  padding: 6px 12px;
+  border: 1px solid white;
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-transition: .25s;
+  transition: .25s;
+  border-radius: 3px;
+  margin-left: 15px;
+}
+
+button.edit-rant:hover {
+  float: left;
+  background: white;
+  color: #1abc9c;
+  padding: 6px 12px;
+  border: 1px solid #1abc9c;
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-transition: .25s;
+  transition: .25s;
+  border-radius: 3px;
+  margin-left: 15px;
 }
