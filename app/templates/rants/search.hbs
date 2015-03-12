@@ -1,0 +1,47 @@
+{{#if results}}
+    {{#each rant in results}}
+
+        <section class="rants-index">
+
+          <article class="rant-item">
+            <header class="rant-header">
+              <div class = "rant-header-title">
+                {{#link-to 'rant' rant}}
+                  <h3>{{rant.title}}</h3>
+                {{/link-to}}
+              </div>
+              <div class = "rant-header-actions">
+              <button class="button button-primary">Edit</button>
+              <!-- <span class = "icon-new"></span> -->
+              </div>
+            </header>
+            <aside class= "rant-secondary">
+              <div class= "author">
+                <div class= "author-photo"></div>
+                <h5></h5>
+                <h6></h6>
+              </div>
+            </aside>
+            <section class = "rant-item-content">
+              {{rant.body}}
+            </section>
+
+        </section>
+  
+    {{/each}}
+{{else}}
+
+  <section class= "hero">
+    <header class="hero-header">
+      <h3>
+        These aren't the droids you are looking for.
+      </h3>
+      <h4></h4>
+    </header>
+    <div class="hero-content">
+      <p>
+        Keep searching.
+      </p>
+    </div>
+    </section>
+{{/if}}

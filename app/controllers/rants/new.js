@@ -14,6 +14,9 @@ export default Ember.Controller.extend({
           this.transitionToRoute('rants');
         }.bind(this));
       }
+    },
+    cancelRant: function() {
+      this.transitionToRoute('rants');
     }
   }
 });
