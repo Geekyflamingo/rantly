@@ -1,1 +1,53 @@
-{{outlet}}
+{{#if isEditing}}
+    <article class = "rant-item">
+      <header class = "rant-header">
+        <div class = "rant-header-title">
+          {{input class= "input" value=title  type= "text" }}
+        </div>
+        <div class = "rant-header-actions">
+          <button class="button button-primary" {{action 'saveRant' this}}>
+            <span class= "icon-upload">Save</span>
+          </button>
+          <button class="button button-default" {{action 'cancelRant' this}}>
+            <span class= "icon-exit">Cancel</span>
+          </button>
+          <button class="button button-warning"{{action 'deleteRant' this}}>
+            <span class= "icon-trash">Delete</span>
+          </button>
+        </div>
+      </header>
+      <aside class= "rant-secondary">
+        <div class= "author">
+          <div class= "author-photo"></div>
+          <h5></h5>
+          <h6></h6>
+        </div>
+      </aside>
+      <section class = "rant-item-content">
+          {{textarea rows = "13" value=body}}
+      </section>
+    </article>
+{{else}}
+    <article class = "rant-item">
+      <header class = "rant-header">
+        <div class = "rant-header-title">
+          <h3>{{title}}</h3>
+        </div>
+        <div class = "rant-header-actions">
+          <button class="button button-primary" {{action 'editRant' rant}}>
+            <span class= "icon-new">Edit</span>
+          </button>
+        </div>
+      </header>
+      <aside class= "rant-secondary">
+        <div class= "author">
+          <div class= "author-photo"></div>
+          <h5></h5>
+          <h6></h6>
+        </div>
+      </aside>
+      <section class = "rant-item-content">
+        <p>{{body}}</p>
+      </section>
+    </article>
+{{/if}}

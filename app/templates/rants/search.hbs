@@ -1,33 +1,61 @@
 {{#if results}}
     {{#each rant in results}}
-
-        <section class="rants-index">
-
-          <article class="rant-item">
-            <header class="rant-header">
-              <div class = "rant-header-title">
-                {{#link-to 'rant' rant}}
-                  <h3>{{rant.title}}</h3>
-                {{/link-to}}
-              </div>
-              <div class = "rant-header-actions">
-              <button class="button button-primary">Edit</button>
-              <!-- <span class = "icon-new"></span> -->
-              </div>
-            </header>
-            <aside class= "rant-secondary">
-              <div class= "author">
-                <div class= "author-photo"></div>
-                <h5></h5>
-                <h6></h6>
-              </div>
-            </aside>
-            <section class = "rant-item-content">
-              {{rant.body}}
-            </section>
-
-        </section>
-  
+        {{#if isEditing}}
+            <article class = "rant-item">
+              <header class = "rant-header">
+                <div class = "rant-header-title">
+                  {{input class= "input" value=rant.title  type= "text" }}
+                </div>
+                <div class = "rant-header-actions">
+                  <button class="button button-primary" {{action 'saveRant' this}}>
+                    <span class= "icon-upload">Save</span>
+                  </button>
+                  <button class="button button-default" {{action 'cancelRant' this}}>
+                    <span class= "icon-exit">Cancel</span>
+                  </button>
+                  <button class="button button-warning"{{action 'deleteRant' this}}>
+                    <span class= "icon-trash">Delete</span>
+                  </button>
+                </div>
+              </header>
+              <aside class= "rant-secondary">
+                <div class= "author">
+                  <div class= "author-photo"></div>
+                  <h5></h5>
+                  <h6></h6>
+                </div>
+              </aside>
+              <section class = "rant-item-content">
+                  {{textarea rows = "13" value=rant.body}}
+              </section>
+            </article>
+        {{else}}
+          <section class="rants-index">
+            <article class="rant-item">
+              <header class="rant-header">
+                <div class = "rant-header-title">
+                  {{#link-to 'rant' rant}}
+                    <h3>{{rant.title}}</h3>
+                  {{/link-to}}
+                </div>
+                <div class = "rant-header-actions">
+                  <button class="button button-primary" {{action 'editRant' rant}}>
+                    <span class= "icon-new">Edit</span>
+                  </button>
+                </div>
+              </header>
+              <aside class= "rant-secondary">
+                <div class= "author">
+                  <div class= "author-photo"></div>
+                  <h5></h5>
+                  <h6></h6>
+                </div>
+              </aside>
+              <section class = "rant-item-content">
+                {{rant.body}}
+              </section>
+          </section>
+        {{/if}}
     {{/each}}
 {{else}}
 
