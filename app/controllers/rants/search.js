@@ -18,7 +18,7 @@ export default Ember.ArrayController.extend({
     },
     cancelRant: function(rant) {
       this.set('isEditing', false);
-      this.transitionToRoute('rant', rant.id);
+      this.transitionToRoute('rants', rant.id);
     },
     saveRant: function(rant){
       var controller = this;
