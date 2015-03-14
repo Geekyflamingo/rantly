@@ -13,7 +13,7 @@ Router.map(function() {
     });
   });
   this.resource("users", function() {
-    this.resource("user", { path: '/:user_id' });
+    this.resource("show", { path: ":user_id"}, function() {});
   });
   this.route("signup");
 });

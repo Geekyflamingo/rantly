@@ -1,0 +1,17 @@
+  <section class= "author-index">
+    {{#each user in model}}
+      {{#link-to 'show' user}}
+        <div class="author">
+          <div style="background-image: url(http://www.gravatar.com/avatar/)" class="author-photo">
+          </div>
+          <h5>
+            {{user.firstName}}
+            {{user.lastName}}
+          </h5>
+          <h6>
+            {{user.email}}
+          </h6>
+        </div>
+      {{/link-to}}
+    {{/each}}
+  </section>
