@@ -8,24 +8,31 @@
       {{email}}
     </h6>
   </aside>
-  <div style="background-image: url(http://www.gravatar.com/avatar/)" class="user-photo-show">
-  </div>
+  <aside class= "rant-secondary">
+    <div class= "author">
+      <div class= "author-photo"></div>
+      <h5></h5>
+      <h6></h6>
+    </div>
+  </aside>
 </div>
 
 <main id="scroll">
-
   {{#each rant in rants}}
-    <div class="rant-box">
-      <header class="rant-header">
-        {{#link-to 'rant' rant.id}}
-        <h3 class="rant-title">
-          {{rant.title}}
-        </h3>
-        {{/link-to}}
+    <article class = "rant-item">
+      <header class = "rant-header">
+        <div class = "rant-header-title">
+          <h3>{{rant.title}}</h3>
+        </div>
+        <div class = "rant-header-actions">
+          <button class="button button-primary" {{action 'editRant' rant}}>
+            <span class= "icon-new">Edit</span>
+          </button>
+        </div>
       </header>
-      <section class="rant-content full-width">
+      <section class = "rant-item-content">
         <p>{{rant.body}}</p>
       </section>
-    </div>
+    </article>
   {{/each}}
 </main>
