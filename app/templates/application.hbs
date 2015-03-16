@@ -32,15 +32,16 @@
         <div>
         <form class="login-form">
           <div class="form-group">
-            {{input placeholder="Your email" class="ember-text-field" type = "text"}}
-            <label class = "login-field-icon icon-user" for="login-name"></label>
+            {{input placeholder="Your email" class="ember-text-field" value= login-name type= "text"}}
           </div>
           <div class="form-group">
-            {{input placeholder="Your password" class="ember-text-field" type = "password"}}
-            <label class = "login-field-icon icon-lock" for="login-pass"></label>
+            {{input placeholder="Your password" class="ember-text-field" value= login-pass type= "password"}}
           </div>
-          {{input class= "button button-primary button-lg button-block" type="submit" value="Log In"}}
+          <button class= "button button-primary button-lg button-block" {{action "login"}}>Log In</button>
         </form>
+        {{#if errorMessage}}
+          <div>{{errorMessage}}</div>
+        {{/if}}
         </div>
       </aside>
 
@@ -49,9 +50,6 @@
           <button class="button button-invert">New Rant</button>
         {{/link-to}}
       </header>
-       <div class="flash-message">
-        <h2>{{message-queue}}</h2>
-      </div>
       <main id = "scroll">
         {{outlet}}
       </main>
