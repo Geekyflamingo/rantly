@@ -5,9 +5,7 @@
         {{input placeholder = "Rant title" class= "input" value=newTitle  type= "text" }}
       </div>
       <div class = "rant-header-actions">
-        {{#link-to 'rants'}}
           <button class = "button button-primary"{{action 'newRant'}}>Save</button>
-        {{/link-to}}
         {{#link-to 'rants'}}
           <button class = "button button-default"{{action 'cancelRant'}}>Cancel</button>
         {{/link-to}}
@@ -18,6 +16,15 @@
         <div class= "author-photo"></div>
         <h5></h5>
         <h6></h6>
+        {{#if newBody}}
+        {{newBody.length}}
+      {{else}}
+        0
+      {{/if}}
+      Characters
+      <div class="errors">
+        {{message-queue}}
+      </div>
       </div>
     </aside>
     <section class= "rant-item-content">

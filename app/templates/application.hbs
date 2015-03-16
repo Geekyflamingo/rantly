@@ -49,7 +49,9 @@
           <button class="button button-invert">New Rant</button>
         {{/link-to}}
       </header>
-
+       <div class="flash-message">
+        <h2>{{message-queue}}</h2>
+      </div>
       <main id = "scroll">
         {{outlet}}
       </main>

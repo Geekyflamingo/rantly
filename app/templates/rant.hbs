@@ -22,6 +22,9 @@
           <h5></h5>
           <h6></h6>
         </div>
+         {{body.length}} Characters.
+        <div class="errors">
+        </div>
       </aside>
       <section class = "rant-item-content">
           {{textarea rows = "13" value=body}}
@@ -45,6 +48,7 @@
           <h5></h5>
           <h6></h6>
         </div>
+        This post is {{body.length}} characters.
       </aside>
       <section class = "rant-item-content">
         <p>{{body}}</p>
