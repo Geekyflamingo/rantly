@@ -17,39 +17,61 @@
             {{#link-to 'users'}}
               Users
             {{/link-to}}
-            {{#link-to 'signup'}}
-              Sign Up
-            {{/link-to}}
+            {{#if loggedIn}}
+              {{else}}
+              {{#link-to 'signup'}}
+                Sign Up
+              {{/link-to}}
+            {{/if}}
           </nav>
       </div>
     </header>
 
     <section class="content">
-      <aside class="rants-navigation">
-        <div class="rant-search">
-          {{input placeholder="Search" value=search class="rant-search-field" type="search" action= "queryRants"}}
-        </div>
-        <div>
-        <form class="login-form">
-          <div class="form-group">
-            {{input placeholder="Your email" class="ember-text-field" value= login-name type= "text"}}
+      {{#if loggedIn}}
+        <aside class="rants-navigation">
+          <div class="rant-search">
+            {{input placeholder="Search" value=search class="rant-search-field" type="search" action= "queryRants"}}
           </div>
-          <div class="form-group">
-            {{input placeholder="Your password" class="ember-text-field" value= login-pass type= "password"}}
-          </div>
-          <button class= "button button-primary button-lg button-block" {{action "login"}}>Log In</button>
-        </form>
-        {{#if errorMessage}}
-          <div>{{errorMessage}}</div>
-        {{/if}}
-        </div>
-      </aside>
+            <div>
+            <div class = author>
+              <div style="background-image: url(http://www.gravatar.com/avatar/)" class = "author-photo"></div>
+              <h5></h5>
+              <h6></h6>
+            </div>
+            <button class="button button-primary button-lg button-block" {{action "signOut"}}>Log Out</button>
+            </div>
+        </aside>
 
-      <header class="app-inner-header">
-        {{#link-to 'rants.new'}}
-          <button class="button button-invert">New Rant</button>
-        {{/link-to}}
-      </header>
+        <header class="app-inner-header">
+          {{#link-to 'rants.new'}}
+            <button class="button button-invert">New Rant</button>
+          {{/link-to}}
+        </header>
+      {{else}}
+        <aside class="rants-navigation">
+          <div class="rant-search">
+            {{input placeholder="Search" value=search class="rant-search-field" type="search" action= "queryRants"}}
+          </div>
+          <div>
+          <form class="login-form">
+            <div class="form-group">
+              {{input placeholder="Your email" class="ember-text-field" value= login-name type= "text"}}
+            </div>
+            <div class="form-group">
+              {{input placeholder="Your password" class="ember-text-field" value= login-pass type= "password"}}
+            </div>
+            <button class= "button button-primary button-lg button-block" {{action "login"}}>Log In</button>
+          </form>
+          {{#if errorMessage}}
+            <div>{{errorMessage}}</div>
+          {{/if}}
+          </div>
+        </aside>
+        <header class="app-inner-header">
+        </header>
+      {{/if}}
+
       <main id = "scroll">
         {{outlet}}
       </main>

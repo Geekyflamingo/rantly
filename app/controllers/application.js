@@ -1,17 +1,8 @@
 import Ember from "ember";
 
 export default Ember.ArrayController.extend({
-  setupController: function(controller){
-    controller.reset();
-  },
 
-  reset: function(){
-    this.setProperties({
-      email: '',
-      password: '',
-      errorMessage: ''
-    });
-  },
+  loggedIn: false,
 
   actions: {
 
@@ -35,15 +26,21 @@ export default Ember.ArrayController.extend({
       var controller = this;
       var data = { email: this.get('login-name'), password:
       this.get('login-pass')};
-      console.log(data);
       controller.set('errorMessage', null);
       var session = controller.store.createRecord('session', data);
-      console.log(session);
       session.save().then(function(){
+        controller.set('loggedIn', true);
+        controller.set('login-name', '');
+        controller.set('login-pass', '');
         localStorage.setItem('authToken', session._data.token);
         controller.transitionToRoute('rants');
       });
+    },
 
+    signOut: function() {
+      localStorage.clear();
+      this.set('loggedIn', false);
+      this.transitionToRoute('rants');
     }
   }
 });
