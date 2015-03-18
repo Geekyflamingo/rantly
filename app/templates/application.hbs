@@ -9,7 +9,7 @@
   <body class = "ember-application">
     <header class="app-header">
       <div class = "content">
-        <a class="app-header-brand" href="/">Rantly</a>
+        {{#link-to 'rants' class="app-header-brand" }}Rantly{{/link-to}}
           <nav>
             {{#link-to 'rants'}}
               Rants

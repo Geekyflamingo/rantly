@@ -3,6 +3,9 @@ import Ember from "ember";
 export default Ember.ArrayController.extend({
 
   loggedIn: false,
+  currentUser: null,
+
+  needs: ['rant'],
 
   actions: {
 
@@ -28,11 +31,12 @@ export default Ember.ArrayController.extend({
       this.get('login-pass')};
       controller.set('errorMessage', null);
       var session = controller.store.createRecord('session', data);
-      session.save().then(function(){
+        session.save().then(function(){
+        localStorage.setItem('authToken', session._data.token);
+        controller.set('currentUser', session._data.user);
         controller.set('loggedIn', true);
         controller.set('login-name', '');
         controller.set('login-pass', '');
-        localStorage.setItem('authToken', session._data.token);
         controller.transitionToRoute('rants');
       });
     },
