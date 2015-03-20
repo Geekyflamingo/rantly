@@ -27,11 +27,10 @@ export default Ember.ArrayController.extend({
 
     login: function(){
       var controller = this;
-      var data = { email: this.get('login-name'), password:
-      this.get('login-pass')};
+      var data = { email: this.get('login-name'), password: this.get('login-pass')};
       controller.set('errorMessage', null);
       var session = controller.store.createRecord('session', data);
-        session.save().then(function(){
+      session.save().then(function(){
         localStorage.setItem('authToken', session._data.token);
         controller.set('currentUser', session._data.user);
         controller.set('loggedIn', true);
