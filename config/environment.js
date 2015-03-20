@@ -19,7 +19,8 @@ module.exports = function(environment) {
       'connect-src': "'self' localhost:3000",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'media-src': "'self'"
+      'media-src': "'self'",
+      'img-src': "'self' www.gravatar.com",
     },
 
     APP: {
