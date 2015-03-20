@@ -36,11 +36,13 @@
         <div class = "rant-header-title">
           <h3>{{title}}</h3>
         </div>
-        <div class = "rant-header-actions">
-          <button class="button button-primary" {{action 'editRant' rant}}>
-            <span class= "icon-new">Edit</span>
-          </button>
-        </div>
+        {{#if rantMatch}}
+          <div class = "rant-header-actions">
+            <button class="button button-primary" {{action 'editRant' rant}}>
+              <span class= "icon-new">Edit</span>
+            </button>
+          </div>
+        {{/if}}
       </header>
       <aside class= "rant-secondary">
         <div class= "author">

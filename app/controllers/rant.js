@@ -8,10 +8,8 @@ export default Ember.ObjectController.extend({
 
     rantMatch: function() {
      var rantUser = this.model._data.user.id;
-      console.log(rantUser);
      var appController = this.get('controllers.application');
      var appUser = appController.currentUser;
-      console.log(appUser);
      var controller = this;
      if ((appUser>0) && (rantUser>0)) {
        if (rantUser == appUser) {
