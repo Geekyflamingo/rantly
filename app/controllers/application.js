@@ -27,9 +27,11 @@ export default Ember.ArrayController.extend({
 
     login: function(){
       var controller = this;
-      var data = { email: this.get('login-name'), password: this.get('login-pass')};
+      var email = this.get('login-name');
+      var password = this.get('login-pass');
+
       controller.set('errorMessage', null);
-      var session = controller.store.createRecord('session', data);
+      var session = controller.store.createRecord('session', {email: email, password: password});
       session.save().then(function(){
         localStorage.setItem('authToken', session._data.token);
         controller.set('currentUser', session._data.user);
@@ -43,6 +45,7 @@ export default Ember.ArrayController.extend({
     signOut: function() {
       localStorage.clear();
       this.set('loggedIn', false);
+      this.set('currentUser', null);
       this.transitionToRoute('rants');
     }
   }

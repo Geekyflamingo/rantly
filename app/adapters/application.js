@@ -5,10 +5,10 @@ export default DS.ActiveModelAdapter.extend({
 
   headers: function(){
     var token = localStorage.getItem('authToken');
-    if(token){
-      return{
+    if(token) {
+      return {
         "Authorization": "" + token
       };
     }
-  }.property('signin.authToken')
+  }.property('signin.authToken'),
 });
