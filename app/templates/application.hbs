@@ -62,6 +62,7 @@
               {{input placeholder="Your password" class="ember-text-field" value= login-pass type= "password"}}
             </div>
             <button class= "button button-primary button-lg button-block" {{action "login"}}>Log In</button>
+            <div class= "errors"></div>
           </form>
           {{#if errorMessage}}
             <div>{{errorMessage}}</div>
