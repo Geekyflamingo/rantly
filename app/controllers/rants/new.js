@@ -1,10 +1,15 @@
 import Ember from "ember";
 
 export default Ember.Controller.extend({
+  needs: ['application'],
+
   actions: {
     newRant: function() {
-      var title = this.get('newTitle');
-      var body = this.get('newBody');
+      var controller = this;
+      var title = controller.get('newTitle');
+      var body = controller.get('newBody');
+      var app = this.get('controllers.application');
+      var user = app.currentUser;
       var input = document.getElementsByClassName("errors")[0];
 
       if ((!title) && ((!body) || (body.length < 143))) {
@@ -19,12 +24,12 @@ export default Ember.Controller.extend({
         var error = document.createTextNode("Your rant must have a title.");
         input.appendChild(error);
       }else {
-          var rant = this.store.createRecord('rant', { title: title, body: body });
-          this.set('newTitle', '');
-          this.set('newBody', '');
+          var rant = controller.store.createRecord('rant', { title: title, body: body, user: user });
+          controller.set('newTitle', '');
+          controller.set('newBody', '');
           rant.save().then(function(){
-            this.transitionToRoute('rants');
-          }.bind(this));
+            controller.transitionToRoute('rants');
+          });
         }
     },
     cancelRant: function() {

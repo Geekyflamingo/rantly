@@ -4,6 +4,20 @@ export default Ember.ObjectController.extend({
 
   isEditing: false,
 
+  needs: ['application'],
+
+    rantMatch: function() {
+     var rantUser = this.model._data.user.id;
+     var appController = this.get('controllers.application');
+     var appUser = appController.currentUser;
+     var controller = this;
+     if ((appUser>0) && (rantUser>0)) {
+       if (rantUser == appUser) {
+         return true;
+       }
+     }
+   }.property('rantMatch'),
+
   actions: {
 
     editRant: function(rant) {

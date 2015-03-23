@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.ArrayController.extend({
+  needs: ['application'],
 
   actions: {
 
@@ -9,7 +10,7 @@ export default Ember.ArrayController.extend({
       var firstName = this.get('fnameCopy'),
           lastName  = this.get('lnameCopy'),
           email     = this.get('emailCopy').trim(),
-          password  = this.get('password'),
+          password  = this.get('passwordCopy'),
           passwordConfirm  = this.get('passwordConfirm');
 
 
@@ -18,13 +19,13 @@ export default Ember.ArrayController.extend({
         lastName: lastName,
         email: email,
         password: password,
-        password_confirm: passwordConfirm});
-      controller.set('fnameCopy', '');
-      controller.set('lnameCopy', '');
-      controller.set('emailCopy', '');
-      controller.set('passwordCopy', '');
-      controller.set('passwordConfirm', '');
+        passwordConfirmation: passwordConfirm});
       user.save().then(function(){
+        controller.set('fnameCopy', '');
+        controller.set('lnameCopy', '');
+        controller.set('emailCopy', '');
+        controller.set('passwordCopy', '');
+        controller.set('passwordConfirm', '');
         controller.transitionToRoute('rants');
       });
     }

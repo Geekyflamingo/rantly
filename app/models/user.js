@@ -4,6 +4,9 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
-  rants: DS.hasMany('rant')
+  password: DS.attr('string'),
+  passwordConfirmation: DS.attr('string'),
+  rants: DS.hasMany('rant'),
+  session: DS.hasMany('session')
 
 });

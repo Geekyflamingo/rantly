@@ -10,7 +10,7 @@
   </aside>
   <aside class= "rant-secondary">
     <div class= "author">
-      <div class= "author-photo"></div>
+      <div>{{gravatar-image email= user.email class='author-photo'}}</div>
       <h5></h5>
       <h6></h6>
     </div>
@@ -22,12 +22,9 @@
     <article class = "rant-item">
       <header class = "rant-header">
         <div class = "rant-header-title">
-          <h3>{{rant.title}}</h3>
+          {{#link-to 'rant' rant.id}}<h3>{{rant.title}}</h3>{{/link-to}}
         </div>
         <div class = "rant-header-actions">
-          <button class="button button-primary" {{action 'editRant' rant}}>
-            <span class= "icon-new">Edit</span>
-          </button>
         </div>
       </header>
       <aside class= "rant-secondary">

@@ -266,7 +266,8 @@ main{
   box-shadow:0 1px 4px 0 rgba(0,0,0,.2)
 }
 .app-inner-header{
-  width:74.6687%
+  width:74.6687%;
+  height: 47px;
 }
 
 button{
@@ -527,7 +528,7 @@ input:focus,textarea:focus{
   height:100px;
   margin-bottom:15px;
   color:#34495E;
-  background:url(http://www.gravatar.com/avatar/email) center/cover no-repeat;
+  background:center/cover no-repeat;
   border:4px dashed;border-radius:25px 25px 0
 }
 
