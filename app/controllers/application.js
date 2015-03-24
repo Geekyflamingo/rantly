@@ -2,10 +2,21 @@ import Ember from "ember";
 
 export default Ember.ArrayController.extend({
 
-  loggedIn: false,
+  loggedIn: function() {
+   var token = localStorage.authToken;
+   if (token) {
+     return true;
+   } else {
+     return false;
+   }
+  }.property().volatile(),
+
   currentUser: null,
 
+  needs: ['rant'],
+
   actions: {
+
 
     queryRants: function() {
       var query = this.get('search');
@@ -28,7 +39,7 @@ export default Ember.ArrayController.extend({
       var email = this.get('login-name');
       var password = this.get('login-pass');
       var input = document.getElementsByClassName("errors")[0];
-
+      
       if(
           ((email == null) || (email.length < 0)) ||
           ((password == null) || (password.length < 0))
@@ -44,6 +55,7 @@ export default Ember.ArrayController.extend({
             controller.set('loggedIn', true);
             controller.set('login-name', '');
             controller.set('login-pass', '');
+            controller.get('target').send('refresh');
             controller.transitionToRoute('rants');
           }else{
             var error = document.createTextNode("Invalid email/password");
@@ -58,6 +70,7 @@ export default Ember.ArrayController.extend({
       this.set('loggedIn', false);
       this.set('currentUser', null);
       this.transitionToRoute('rants');
+      location.reload();
     }
   }
 });

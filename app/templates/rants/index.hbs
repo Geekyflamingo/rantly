@@ -1,35 +1,35 @@
-{{#each itemController= "rant"}}
-  {{#if isEditing}}
+{{#each rant in controller}}
+  {{#if rant.isEditing}}
   <article class = "rant-item">
     <header class = "rant-header">
       <div class = "rant-header-title">
-        {{input class= "input" value=title autofocus="true"  type= "text" }}
+        {{input class= "input" value=rant.title autofocus="true"  type= "text" }}
       </div>
       <div class = "rant-header-actions">
-        <button class="button button-primary" {{action 'saveRant' this}}>
+        <button class="button button-primary" {{action 'saveRant' rant}}>
           <span class= "icon-upload">Save</span>
         </button>
-        <button class="button button-default" {{action 'cancelRant' this}}>
+        <button class="button button-default" {{action 'cancelRant' rant}}>
           <span class= "icon-exit">Cancel</span>
         </button>
-        <button class="button button-warning"{{action 'deleteRant' this}}>
+        <button class="button button-warning"{{action 'deleteRant' rant}}>
           <span class= "icon-trash">Delete</span>
         </button>
       </div>
     </header>
     <aside class= "rant-secondary">
       <div class= "author">
-        <div>{{gravatar-image email= user.email class='author-photo'}}</div>
+        <div>{{gravatar-image email= rant.user.email class='author-photo'}}</div>
         <h5></h5>
         <h6></h6>
       </div>
-      {{body.length}}
+      {{rant.body.length}}
         Characters
       <div class="errors">
       </div>
     </aside>
     <section class = "rant-item-content">
-        {{textarea rows = "13" value=body}}
+        {{textarea rows = "13" value=rant.body}}
     </section>
   </article>
 {{else}}
@@ -37,11 +37,11 @@
     <article class="rant-item">
       <header class="rant-header">
         <div class = "rant-header-title">
-          {{#link-to 'rant' this}}
-            <h3>{{title}}</h3>
+          {{#link-to 'rant' rant.id}}
+            <h3>{{rant.title}}</h3>
           {{/link-to}}
         </div>
-        {{#if rantMatch}}
+        {{#if rant.rantMatch}}
           <div class = "rant-header-actions">
           <button class="button button-primary" {{action 'editRant' rant}}>
             <span class= "icon-new">Edit</span>
@@ -51,13 +51,13 @@
       </header>
       <aside class= "rant-secondary">
         <div class= "author">
-          <div>{{gravatar-image email= user.email class='author-photo'}}</div>
+          <div>{{gravatar-image email= rant.user.email class='author-photo'}}</div>
           <h5></h5>
           <h6></h6>
         </div>
       </aside>
       <section class = "rant-item-content">
-        {{body}}
+        {{rant.body}}
       </section>
   </section>
 {{/if}}

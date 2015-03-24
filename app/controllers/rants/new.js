@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
     var currentApp = this.get('controllers.application');
     return currentApp.currentUser;
   }.property('controllers.application.currentUser'),
-  
+
   actions: {
     newRant: function() {
       var controller = this;
