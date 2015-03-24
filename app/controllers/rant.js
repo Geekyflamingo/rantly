@@ -55,7 +55,7 @@ export default Ember.ObjectController.extend({
     },
 
     deleteRant: function(rant) {
-      var control = this
+      var control = this;
       Ember.$('.button-warning').parents('article').addClass('fade-out');
       Ember.run.later(function(){
         rant.destroyRecord();
