@@ -55,10 +55,12 @@ export default Ember.ObjectController.extend({
     },
 
     deleteRant: function(rant) {
-      rant.deleteRecord();
-      rant.save().then(function(){
-        this.transitionToRoute('rants');
-      }.bind(this));
-    }
+      var control = this
+      Ember.$('.button-warning').parents('article').addClass('fade-out');
+      Ember.run.later(function(){
+        rant.destroyRecord();
+        control.transitionToRoute('rants');
+      }, 400);
+   }
   }
 });
