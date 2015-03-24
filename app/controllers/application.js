@@ -11,7 +11,23 @@ export default Ember.ArrayController.extend({
    }
   }.property().volatile(),
 
-  currentUser: null,
+  currnetUser: function() {
+   var user = localStorage.user;
+   if (user) {
+     return user;
+   } else {
+     return null;
+   }
+  }.property().volatile(),
+
+  currentUserEmail: function() {
+   var email = localStorage.email;
+   if (email) {
+     return email;
+   } else {
+     return null;
+   }
+  }.property().volatile(),
 
   needs: ['rant'],
 
@@ -39,7 +55,7 @@ export default Ember.ArrayController.extend({
       var email = this.get('login-name');
       var password = this.get('login-pass');
       var input = document.getElementsByClassName("errors")[0];
-      
+
       if(
           ((email == null) || (email.length < 0)) ||
           ((password == null) || (password.length < 0))
@@ -51,7 +67,10 @@ export default Ember.ArrayController.extend({
         session.save().then(function(){
           if(session._data.success === true){
             localStorage.setItem('authToken', session._data.token);
+            localStorage.setItem('user', session._data.user);
+            localStorage.setItem('email', email);
             controller.set('currentUser', session._data.user);
+            controller.set('currentUserEmail', email);
             controller.set('loggedIn', true);
             controller.set('login-name', '');
             controller.set('login-pass', '');
@@ -69,6 +88,7 @@ export default Ember.ArrayController.extend({
       localStorage.clear();
       this.set('loggedIn', false);
       this.set('currentUser', null);
+      this.set('currentUserEmail', null);
       this.transitionToRoute('rants');
       location.reload();
     }
