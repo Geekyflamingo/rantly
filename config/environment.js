@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'rantly',
     environment: environment,
     baseURL: '/',
+    adapterURL: process.env.ADAPTER_URL,
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
