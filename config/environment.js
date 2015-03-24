@@ -20,7 +20,9 @@ module.exports = function(environment) {
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'media-src': "'self'",
+      'font-src': "'self' http://fonts.gstatic.com http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0",
       'img-src': "'self' www.gravatar.com",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com http://css-spinners.com/css/spinner/spinner.css http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
     },
 
     APP: {

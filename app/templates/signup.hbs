@@ -1,12 +1,15 @@
+<div class= "errors"></div>
 <div class="login-form">
   {{input type="text" placeholder="First Name" class= "text-field" value= fnameCopy}}
   {{input type="text" placeholder= "Last Name" class= "text-field" value= lnameCopy}}
   {{input type="email" placeholder= "Email" class= "text-field" value= emailCopy}}
   <div class="form-group">
+    <label class= "login-field-icon icon-lock" for= "login-pass"><i class="fa fa-lock fa-lg log-in-field log-in-pass"></i></label>
     {{input type="password" placeholder= "Password" class= "text-field" value= passwordCopy}}
-    {{input type= "password" placeholder= "Password Confirmation" value= passwordConfirm}}
+    {{input type= "password" placeholder= "Password Confirmation" class= "text-field" value= passwordConfirm}}
+    <label class= "login-field-icon icon-lock" for= "login-pass"><i class="fa fa-lock fa-lg log-in-field log-in-pass"></i></label>
   </div>
   <button class= "button button-primary button-lg button-block" {{action 'register'}}>
-    Log in
+    Sign Up
   </button>
 </div>

@@ -35,7 +35,7 @@
           </div>
             <div>
             <div class = author>
-              <div>{{gravatar-image email= user.email class='author-photo'}}</div>
+              <div>{{gravatar-image email= currentUserEmail class='author-photo'}}</div>
               <h5></h5>
               <h6></h6>
             </div>
@@ -57,11 +57,14 @@
           <form class="login-form">
             <div class="form-group">
               {{input placeholder="Your email" class="ember-text-field" value= login-name type= "text"}}
+              <label class= "login-field-icon icon-user" for= "login-name"><i class="fa fa-user fa-lg log-in-field log-in-email"></i></label>
             </div>
             <div class="form-group">
               {{input placeholder="Your password" class="ember-text-field" value= login-pass type= "password"}}
+              <label class= "login-field-icon icon-lock" for= "login-pass"><i class="fa fa-lock fa-lg log-in-field log-in-pass"></i></label>
             </div>
             <button class= "button button-primary button-lg button-block" {{action "login"}}>Log In</button>
+            <div class= "errors"></div>
           </form>
           {{#if errorMessage}}
             <div>{{errorMessage}}</div>

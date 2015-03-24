@@ -8,13 +8,13 @@
                 </div>
                 <div class = "rant-header-actions">
                   <button class="button button-primary" {{action 'saveRant' this}}>
-                    <span class= "icon-upload">Save</span>
+                    <span class= "icon-upload fa fa-save"> Save</span>
                   </button>
                   <button class="button button-default" {{action 'cancelRant' this}}>
-                    <span class= "icon-exit">Cancel</span>
+                    <span class= "icon-exit fa fa-share-square-o"> Cancel</span>
                   </button>
                   <button class="button button-warning"{{action 'deleteRant' this}}>
-                    <span class= "icon-trash">Delete</span>
+                    <span class= "icon-trash fa fa-trash-o"> Delete</span>
                   </button>
                 </div>
               </header>
@@ -44,14 +44,14 @@
                 {{# if rantMatch}}
                   <div class = "rant-header-actions">
                     <button class="button button-primary" {{action 'editRant' rant}}>
-                      <span class= "icon-new">Edit</span>
+                      <span class= "icon-new fa fa-pencil-square-o"> Edit</span>
                     </button>
                   </div>
                 {{/if}}
               </header>
               <aside class= "rant-secondary">
                 <div class= "author">
-                  <div class= "author-photo"></div>
+                  <div>{{gravatar-image email= rant.user.email class='author-photo'}}</div>
                   <h5></h5>
                   <h6></h6>
                 </div>

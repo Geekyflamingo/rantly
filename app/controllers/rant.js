@@ -9,14 +9,14 @@ export default Ember.ObjectController.extend({
     rantMatch: function() {
      var rantUser = this.model._data.user.id;
      var appController = this.get('controllers.application');
-     var appUser = appController.currentUser;
+     var appUser = appController.currentUser ?  appController.currentUser.id :  null;
      var controller = this;
-     if ((appUser>0) && (rantUser>0)) {
+     if ((appUser>0)  && (rantUser>0)) {
        if (rantUser == appUser) {
          return true;
        }
      }
-   }.property('rantMatch'),
+   }.property().volatile(),
 
   actions: {
 
@@ -55,10 +55,12 @@ export default Ember.ObjectController.extend({
     },
 
     deleteRant: function(rant) {
-      rant.deleteRecord();
-      rant.save().then(function(){
-        this.transitionToRoute('rants');
-      }.bind(this));
-    }
+      var control = this
+      Ember.$('.button-warning').parents('article').addClass('fade-out');
+      Ember.run.later(function(){
+        rant.destroyRecord();
+        control.transitionToRoute('rants');
+      }, 400);
+   }
   }
 });
