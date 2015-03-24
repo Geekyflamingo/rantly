@@ -5,9 +5,13 @@
         {{input placeholder = "Rant title" class= "input" value=newTitle  type= "text" }}
       </div>
       <div class = "rant-header-actions">
-          <button class = "button button-primary"{{action 'newRant'}}>Save</button>
+          <button class = "button button-primary"{{action 'newRant'}}>
+            <span class=" icon-upload fa fa-save"> Save</span>
+          </button>
         {{#link-to 'rants'}}
-          <button class = "button button-default"{{action 'cancelRant'}}>Cancel</button>
+          <button class = "button button-default"{{action 'cancelRant'}}>
+            <span class = "icon-exit fa fa-share-square-o"> Cancel</span>
+          </button>
         {{/link-to}}
       </div>
     </header>
