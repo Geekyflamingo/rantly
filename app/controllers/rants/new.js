@@ -2,7 +2,11 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   needs: ['application'],
-
+  user: function(){
+    var currentApp = this.get('controllers.application');
+    return currentApp.currentUser;
+  }.property('controllers.application.currentUser'),
+  
   actions: {
     newRant: function() {
       var controller = this;
