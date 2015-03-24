@@ -16,7 +16,7 @@ export default Ember.ObjectController.extend({
          return true;
        }
      }
-   }.property('rantMatch'),
+   }.property().volatile(),
 
   actions: {
 
