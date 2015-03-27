@@ -11,7 +11,7 @@ export default Ember.ArrayController.extend({
    }
   }.property().volatile(),
 
-  currnetUser: function() {
+  currentUser: function() {
    var user = localStorage.user;
    if (user) {
      return user;

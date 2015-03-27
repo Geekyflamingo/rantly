@@ -1,18 +1,18 @@
   <section class= "author-index">
     {{#each user in model}}
-      {{#link-to 'show' user}}
         <div class="author">
           <div>
             {{gravatar-image email= user.email class='author-photo'}}
           </div>
-          <h5>
+      {{#link-to 'show' user}}
+          <h5 class= "user_name">
             {{user.firstName}}
             {{user.lastName}}
           </h5>
+      {{/link-to}}
           <h6>
             {{user.email}}
           </h6>
         </div>
-      {{/link-to}}
     {{/each}}
   </section>
