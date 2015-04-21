@@ -163,10 +163,6 @@ main{
   float:left;
   box-shadow:0 1px 4px 0 rgba(0,0,0,.2)
 }
-.app-inner-header{
-  width:74.6687%;
-  height: 47px;
-}
 
 button{
   -webkit-appearance:button;
@@ -198,7 +194,6 @@ button{
 }
 
 .button-block{
-  display:block;
   width:100%
 }
 
@@ -289,10 +284,11 @@ button{
 }
 
 .app-inner-header{
-  float:left;
   background:#3498DB;
   padding:7px 15px;
-  color:#fff
+  color:#fff;
+  display: block;
+  height: 47px;
 }
 
 .app-inner-header .button{
@@ -324,7 +320,8 @@ input,textarea{
 
 input:focus,textarea:focus{
   border:2px solid #1ABC9C;
-  outline:0
+  outline:0;
+  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
 }
 
 .form-group{
